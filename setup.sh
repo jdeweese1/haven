@@ -19,7 +19,7 @@ git clone https://github.com/jdeweese1/exam-template
 sudo tailscale up
 key_base_name=~/.ssh/$(date +"%Y-%m-%d")_ed25519
 ssh-keygen -t ed25519 -C "$email" -f $key_base_name -q -N ""
-eval "$(ssh-agent -s)"
+eval `$(ssh-agent -s)`
 ssh-add key_base_name
 echo "You should add the following to ur github:"
 cat $key_base_name.pub
