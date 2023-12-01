@@ -7,9 +7,10 @@ cd dotfiles && make dotfiles
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo usermod --shell /bin/zsh ec2-user
 sh <(curl -L https://nixos.org/nix/install) --daemon
-pipx install pipenv csvtool
+pipx install  csvtool
+pip install pipenv
 git clone https://github.com/jdeweese1/exam-template
 
-tailscale up
+sudo tailscale up
 ssh-keygen -t ed25519 -C "your_email@example.com"
 git clone https://github.com/jdeweese1/haven
