@@ -7,8 +7,8 @@ git clone https://github.com/jdeweese1/dotfiles
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo usermod --shell /bin/zsh ec2-user
 sh <(curl -L https://nixos.org/nix/install) --daemon
+pip3 install pipx pipenv
 pipx install  csvtool
-pip install pipenv
 git clone https://github.com/jdeweese1/exam-template
 
 sudo tailscale up
