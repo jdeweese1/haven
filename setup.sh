@@ -15,5 +15,7 @@ sudo tailscale up
 key_base_name=~/.ssh/$(date +"%Y-%m-%d")_ed25519
 ssh-keygen -t ed25519 -C "your_email@example.com"
 eval "$(ssh-agent -s)"
-echo "YOU NEED TO ssh-add ~/.ur-priv-key-file"
+ssh-add key_base_name
+echo "You should add the following to ur github:"
+cat $key_base_name.pub
 git clone https://github.com/jdeweese1/haven
