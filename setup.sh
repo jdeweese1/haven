@@ -9,10 +9,12 @@ python3 -m pip install --user ansible
 git clone https://github.com/jdeweese1/dotfiles
 (cd dotfiles && make dotfiles)
 curl -fsSL https://tailscale.com/install.sh | sh
-sudo usermod --shell /bin/zsh ec2-user
+sudo usermod --shell /bin/zsh ec2-user &
 
-sh <(curl -L https://nixos.org/nix/install) --daemon
-pip3 install pipx pipenv
+sh <(curl -L https://nixos.org/nix/install) --daemon &
+pip3 install pipx pipenv &
+
+wait
 pipx install  csvtool
 git clone https://github.com/jdeweese1/exam-template
 

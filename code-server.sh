@@ -1,6 +1,8 @@
 #curl -fsSL https://code-server.dev/install.sh | sh
 #sudo systemctl enable --now code-server@$USER
 
+echo "$(tailscale ip)"
+echo "$(cat  ~/.config/code-server/config.yaml)"
 mkdir -p ~/.config
 docker run -it --name code-server -p 127.0.0.1:8080:8080 \
   -v "$HOME/.local:/home/coder/.local" \
@@ -9,6 +11,6 @@ docker run -it --name code-server -p 127.0.0.1:8080:8080 \
   -u "$(id -u):$(id -g)" \
   -e "DOCKER_USER=$USER" \
   --network host \
-  codercom/code-server:latest
+  codercom/code-server:latest || docker restart code-server &
 
 
